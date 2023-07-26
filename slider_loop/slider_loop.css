@@ -1,0 +1,123 @@
+
+/* здечь начинается код, который относиться непосредственно к блоку галереи */
+.gallery__box {
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    gap:10px; /* захотите увеличите отступы */
+}
+.gallery__box_item {
+    flex: 1 1 30%; /* можно изменить в целях колличества отображения в строке + учитывайте gap */
+    min-width:250px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+.gallery__box_item_img {
+    object-fit:cover;
+    flex:1 1 auto;
+}
+.gallery__box_item_img img {
+    height:100%;
+    width:100%;
+    object-fit:cover;
+}
+.gallery__box_item_text {
+    height: 50px;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,0.8); /* заливка для окна текста */
+}
+.gallery__box_item_text span {
+    /* здесь добавите стили для текста */
+}
+/* для js */
+.clickLoop {
+/*
+    здесь ничего нет. это пометка для js что увеличивать
+    можно было и не писать тут, но хороший тон любой класс озвучить
+ */
+}
+.clickLoop__active {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100vh !important;
+    & .gallery__box_item_img {
+        z-index: 999;
+        padding-top:5vh;
+        padding-bottom:5vh;
+        object-fit:cover;
+        height: 90vh !important;
+        background:rgba(255,255,255,0.8); /* фоновое изображение, тень, заливка */
+        & img {
+            object-fit:contain;
+        }
+    }
+    & .gallery__box_item_text {
+        z-index: 999;
+        height:10vh;
+        padding-bottom:10vh;
+        & span {
+            font-size:5vh; /* пожелаете измените адаптивный размер */
+        }
+    }
+}
+
+/* дополнения если пожелаете, если нет, удалите в html effect_border_blue */
+/*
+    дополнительная анимация для активных кнопок для текста
+    просто добавляете в тег в класс названия этого стиля и он будет применим
+    пример class="свои какие-то стили и effect_border_blue"
+    как просто надо обозначить, что можно нажать
+*/
+.effect_border_blue   {
+	position:relative;
+}
+.effect_border_blue::before {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	width: 25%;
+	height: 2px;
+    background: #45576D;
+	-webkit-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+.effect_border_blue:hover {
+    cursor: pointer;
+}
+.effect_border_blue:hover:before {
+	width: 50%;
+}
+.effect_border_blue:active:before {
+    width: 100%;
+}
+
+/*
+    анимация обоев  если понадобиться
+    так же к любому блоку добавляется этот класс или к боди
+*/
+.back_anim {
+    background-image:linear-gradient(90deg, #90EE90, #87CEFA);
+    animation: gradient_back 5s ease infinite;
+    background-size: 400% 100%;
+}
+@keyframes gradient_back {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+

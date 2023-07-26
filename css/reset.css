@@ -1,0 +1,96 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+*, body {
+    margin:0;
+    padding: 0;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+    -o-object-fit:cover;
+       object-fit:cover;
+    background: transparent;
+    color: !important;
+}
+a {
+    text-decoration:none;
+    cursor: pointer;
+}
+button {
+    border:none;
+}
+img,
+iframe,
+video {
+    height:100%;
+    width:100%;
+    -o-object-fit:contain;
+       object-fit:contain;
+}
+input {
+    outline:none;
+}
+/* FONTS TEXT */
+@font-face {
+    font-display: swap;
+    font-family: 'Mak';
+    font-style: normal;
+    font-weight: 900;
+    src:    url('./fonts/MAK.woff') format('woff'),
+            url('./fonts/MAK-bold.woff') format('woff');
+}
+
+* {
+    -webkit-transition:0.5s all ease;
+    -o-transition:0.5s all ease;
+    transition:0.5s all ease;
+}
+
+ul {
+    padding-left:30px;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column;
+    gap:5px;
+}
+ul, ol, li {
+  list-style: none;
+}
+a {
+    color: inherit;
+    color:#545454;
+    opacity:0.7;
+}
+a:hover,
+ a:active {
+    opacity:0.5;
+}
+
+.effect_border   {
+	position:relative;
+}
+.effect_border::before {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	width: 0%;
+	height: 2px;
+    background: #545454;
+	-webkit-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+.effect_border:hover:before {
+	width: 50%;
+}
+.effect_border:active:before {
+    width: 100%;
+}
+
